@@ -121,7 +121,7 @@ misrepresented as being the original software.
 #endif /* _WIN32 */
 
 #define MAX_PATH_OR_CMD 1024 /* _MAX_PATH or MAX_PATH */
-#define MAX_MULTIPLE_FILES 32
+#define MAX_MULTIPLE_FILES 4096
 
 char tinyfd_version [8] = "2.9.3";
 
@@ -1873,7 +1873,7 @@ static char const * openFileDialogWinGuiA (
 	ofn.nMaxCustFilter  = 0 ;
 	ofn.nFilterIndex    = 1 ;
 	ofn.lpstrFile		= aoBuff ;
-	ofn.nMaxFile        = MAX_PATH_OR_CMD ;
+	ofn.nMaxFile        = MAX_PATH_OR_CMD * MAX_MULTIPLE_FILES;
 	ofn.lpstrFileTitle  = NULL ;
 	ofn.nMaxFileTitle   = _MAX_FNAME + _MAX_EXT ;
 	ofn.lpstrInitialDir = lDirname && strlen(lDirname) ? lDirname : NULL;
